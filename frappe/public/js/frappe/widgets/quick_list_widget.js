@@ -104,7 +104,7 @@ export default class QuickListWidget extends Widget {
 			primary_action: function () {
 				let old_filter = me.quick_list_filter;
 				let filters = me.filter_group.get_filters();
-				me.quick_list_filter = JSON.stringify(filters);
+				me.quick_list_filter = JSON.parse(filters);
 
 				this.hide();
 
@@ -114,7 +114,7 @@ export default class QuickListWidget extends Widget {
 					me.set_body();
 				}
 			},
-			primary_action_label: __("Save"),
+			primary_action_label: __("Set"),
 		});
 
 		this.dialog.show();

@@ -116,9 +116,7 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-@import "cropperjs/dist/cropper.min.css";
+<style>
 img {
 	display: block;
 	max-width: 100%;

@@ -1,7 +1,15 @@
-<header class="navbar navbar-expand sticky-top" role="navigation">
+<header class="navbar navbar-expand sticky-top" role="navigation" style="background-color:#122745">
 	<div class="container">
-		<a class="navbar-brand navbar-home" href="/app">
+		<!-- <a class="navbar-brand navbar-home" href="/app">
 			<img class="app-logo" style="width: {{ navbar_settings.logo_width || 24 }}px" src="{{ frappe.boot.app_logo_url }}">
+		</a> -->
+		<button style="background-color: transparent;border-color: transparent;" onclick="history.back()">
+			<svg class="icon  icon-lg">
+		<use class="" href="#icon-left" style="fill:var(--gray-100) !important;"></use>
+	</svg>
+		</button>
+		<a href="/app">
+			<img class="app-logo" style="width: {{ navbar_settings.logo_width || 100 }}px" src="/assets/erpnext/images/erp.png">
 		</a>
 		<ul class="nav navbar-nav d-none d-sm-flex" id="navbar-breadcrumbs"></ul>
 		<div class="collapse navbar-collapse justify-content-end">
@@ -34,7 +42,7 @@
 						href="#"
 						onclick="return false;">
 						<span class="notifications-seen">
-							<svg class="icon icon-md"><use href="#icon-notification"></use></svg>
+							<svg class="icon icon-md" style="fill:var(--gray-100) !important;"><use href="#icon-notification"></use></svg>
 						</span>
 						<span class="notifications-unseen">
 							<svg class="icon icon-md"><use href="#icon-notification-with-indicator"></use></svg>
@@ -66,10 +74,10 @@
 				</li>
 				<li class="vertical-bar d-none d-sm-block"></li>
 				<li class="nav-item dropdown dropdown-help dropdown-mobile d-none d-lg-block">
-					<a class="nav-link" data-toggle="dropdown" href="#" onclick="return false;">
+					<a class="nav-link" data-toggle="dropdown" href="#" onclick="return false;" style="color:var(--gray-100) !important;">
 						{{ __("Help") }}
 						<span>
-							<svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
+							<svg class="icon icon-xs" style="fill:var(--gray-100) !important;"><use href="#icon-small-down"></use></svg>
 						</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" id="toolbar-help" role="menu">

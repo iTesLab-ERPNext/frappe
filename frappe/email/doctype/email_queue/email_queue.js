@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Email Queue", {
 	refresh: function (frm) {
-		if (["Not Sent", "Partially Sent"].includes(frm.doc.status)) {
+		if (["Not Sent", "Partially Sent"].indexOf(frm.doc.status) != -1) {
 			let button = frm.add_custom_button("Send Now", function () {
 				frappe.call({
 					method: "frappe.email.doctype.email_queue.email_queue.send_now",
@@ -16,16 +16,20 @@ frappe.ui.form.on("Email Queue", {
 					},
 				});
 			});
-		} else if (frm.doc.status == "Error") {
-			frm.add_custom_button(__("Retry Sending"), function () {
+		}
+
+		if (["Error", "Partially Errored"].indexOf(frm.doc.status) != -1) {
+			let button = frm.add_custom_button("Retry Sending", function () {
 				frm.call({
 					method: "retry_sending",
-					doc: frm.doc,
 					args: {
 						name: frm.doc.name,
 					},
-					callback: function () {
-						frm.reload_doc();
+					btn: button,
+					callback: function (r) {
+						if (!r.exc) {
+							frm.set_value("status", "Not Sent");
+						}
 					},
 				});
 			});

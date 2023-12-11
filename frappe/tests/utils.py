@@ -171,7 +171,7 @@ def _commit_watcher():
 	import traceback
 
 	print("Warning:, transaction committed during tests.")
-	traceback.print_stack(limit=10)
+	traceback.print_stack(limit=5)
 
 
 def _rollback_db():

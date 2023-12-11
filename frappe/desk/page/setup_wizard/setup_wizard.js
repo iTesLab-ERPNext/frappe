@@ -449,7 +449,7 @@ frappe.setup.slides_settings = [
 				fieldtype: "Data",
 				options: "Email",
 			},
-			{ fieldname: "password", label: __("Password"), fieldtype: "Password", length: 512 },
+			{ fieldname: "password", label: __("Password"), fieldtype: "Password" },
 		],
 
 		onload: function (slide) {

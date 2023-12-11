@@ -12,11 +12,12 @@
 		{# powered #}
 		<div class="footer-col-right col-sm-6 col-12 footer-powered">
 			{% block powered %}
-			{%- if footer_powered -%}
+			<a href="https://iteslab.com" target="_blank" class="text-muted">Powered by ItesLab</a>
+			<!-- {%- if footer_powered -%}
 				{{ footer_powered }}
 			{%- else -%}
 				{% include "templates/includes/footer/footer_powered.html" %}
-			{%- endif -%}
+			{%- endif -%} -->
 			{% endblock %}
 		</div>
 	</div>

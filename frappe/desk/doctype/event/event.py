@@ -82,7 +82,9 @@ class Event(Document):
 					["Communication Link", "link_doctype", "=", participant.reference_doctype],
 					["Communication Link", "link_name", "=", participant.reference_docname],
 				]
-				if comms := frappe.get_all("Communication", filters=filters, fields=["name"], distinct=True):
+				comms = frappe.get_all("Communication", filters=filters, fields=["name"])
+
+				if comms:
 					for comm in comms:
 						communication = frappe.get_doc("Communication", comm.name)
 						self.update_communication(participant, communication)

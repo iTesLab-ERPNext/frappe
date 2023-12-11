@@ -61,8 +61,9 @@
 
 {% macro logo_section() %}
 <div class="page-card-head">
-	<img class="app-logo" src="{{ logo }}">
-	<h4>{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4>
+	<!-- <img class="/assets/erpnext/images/erpnext-logo.svg" src="{{ logo }}"> -->
+	<img class="/assets/erpnext/images/erpnext-logo.svg" src="/assets/erpnext/images/logoheader.jpg" width="50%" height="100%">
+	<h4>{{ _('Login to {0}').format("SERP") }}</h4>
 </div>
 {% endmacro %}
 

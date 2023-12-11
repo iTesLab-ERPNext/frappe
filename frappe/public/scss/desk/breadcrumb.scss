@@ -20,7 +20,8 @@
 
 	li.disabled {
 		a {
-			color: var(--text-muted);
+			color:var(--gray-100);                                        
+
 			pointer-events: none;
 		}
 	}
