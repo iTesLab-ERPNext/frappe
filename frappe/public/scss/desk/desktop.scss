@@ -540,18 +540,38 @@ body {
 
 	&.shortcut-widget-box {
 		cursor: pointer;
+		padding: 7px 12px;
+		// max-width: 140px;
+		// max-height: 80px;
+		border-radius: 0px !important;
+		background-color: #e6f1f7;
+		margin: 1rem;
+		&.spacer {
+			align-items: inherit;
+			color: var(--text-muted);
+			border: 1px dashed var(--gray-400);
+			cursor: pointer;
 
+			.widget-control > * {
+				width: auto;
+			}
+
+			.spacer-left {
+				min-width: 74px;
+			}
+		}
 		&:hover {
 			.widget-title {
-				color: var(--blue-500) !important;
+				color: var(--sidebar-select-color) !important;
 			}
 
 			svg.icon-xs {
-				stroke: var(--blue-500) !important;
+				stroke: var(--sidebar-select-color) !important;
 			}
 		}
 
 		.widget-title {
+			//font-size: 12px !important;
 			cursor: pointer !important;
 			font-size: var(--text-base) !important;
 		}
@@ -564,6 +584,7 @@ body {
 
 	&.links-widget-box {
 		padding: 12px 7px;
+		// background-color:  grey;
 
 		.link-item {
 			display: flex;

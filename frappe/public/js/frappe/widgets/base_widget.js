@@ -102,7 +102,7 @@ export default class Widget {
 			let icon = frappe.utils.icon(this.icon, "lg");
 			this.title_field[0].innerHTML = `${icon} <span class="ellipsis" title="${title}">${title}</span>`;
 		} else {
-			this.title_field[0].innerHTML = `<span class="ellipsis" title="${title}">${title}</span>`;
+			this.title_field[0].innerHTML = `<span class="shortcut-widget-font-sm" title="${title}">${title}</span>`;
 			if (max_chars) {
 				this.title_field[0].setAttribute("title", this.title || this.label);
 			}
