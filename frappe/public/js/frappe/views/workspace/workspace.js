@@ -228,12 +228,48 @@ frappe.views.Workspace = class Workspace {
 			$drop_icon.removeClass("hidden");
 		}
 		$drop_icon.on("click", () => {
+			//*--------Updated Code--------*//
+			let not_clicked = $(".drop-icon").not($drop_icon);
+			not_clicked.each(function(){
+				if($(this).find("use").attr("href") === "#icon-small-up"){
+					$(this).find("use").attr("href", "#icon-small-down");
+				}
+			})
+
+			let concerned_parent_name = $drop_icon.closest(".sidebar-item-container").attr("item-name");
+			let nested_child_items = $(".sidebar-child-item .nested-container");
+			nested_child_items.each(function(index){
+				$(this).closest(".sidebar-item-container").attr("item-is-hidden",0);
+				let item_parent = $(this).closest(".sidebar-item-container").attr("item-parent");
+				if(item_parent != concerned_parent_name){
+					console.log("item name:"+ $(this).closest(".sidebar-item-container").attr("item-name"));
+					$(this).closest(".sidebar-item-container").attr("item-is-hidden",1);
+					$(this).find("use").attr("href", "#icon-small-down");
+					$child_item_section.addClass("hidden");
+				}else{
+					$(this).closest(".sidebar-item-container").attr("item-is-hidden",0);
+					$child_item_section.removeClass("hidden");
+				}
+			});
+
 			let icon =
 				$drop_icon.find("use").attr("href") === "#icon-small-down"
 					? "#icon-small-up"
 					: "#icon-small-down";
 			$drop_icon.find("use").attr("href", icon);
-			$child_item_section.toggleClass("hidden");
+			// $child_item_section.toggleClass("hidden");
+			if($drop_icon.find("use").attr("href") === "#icon-small-down"){
+				$child_item_section.addClass("hidden");
+			}else{
+				$child_item_section.removeClass("hidden");
+			}
+			//*--------Default Code--------*//
+			// let icon =
+			// 	$drop_icon.find("use").attr("href") === "#icon-small-down"
+			// 		? "#icon-small-up"
+			// 		: "#icon-small-down";
+			// $drop_icon.find("use").attr("href", icon);
+			// $child_item_section.toggleClass("hidden");
 		});
 	}
 
